@@ -1,0 +1,307 @@
+   // Fonts
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+/* Font Size */
+
+h1,h2,h3,h4,h5,h6,p, span
+{
+    margin-top: 0;
+    margin-bottom: 0.625em;
+}
+
+h2
+{
+    font-size: 2.25em;
+    font-weight: 700;
+    line-height: 2.5em;  
+}
+
+h3
+{
+    font-size: 1.75em;
+    line-height: 1.25em;   
+}
+
+h4
+{
+    font-size: 1.625em;
+    line-height: 1.25em;
+}
+
+p
+{
+    font-size: 1em;
+    line-height: 1em;
+}
+
+
+
+/* Reset Margin e Padding */
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul
+{
+    margin: 0;
+    margin-block: 0;
+    margin-inline: 0;
+    padding: 0;
+    padding-inline: 0;
+}
+
+
+
+/* Template Css */
+
+.header-container
+{
+    display: grid;
+    background-color: #5E94E0;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+}
+
+
+
+.main-container
+{
+    display: grid;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.footer-container
+{
+    display: grid;
+    width: 100%;
+    text-align: center;
+    background-color: #5E94E0;
+}
+
+
+/* Header Style */
+
+.header-logo
+{
+    grid-area: Logo;
+    width: 15.625rem;
+}
+
+.header-menu
+{
+    grid-area: Nav;
+    display: inline-flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.header-search
+{
+    grid-area: Form;
+    position: relative;
+    width: 18.75rem;
+
+    .header-button
+    {
+        position: absolute;
+    }
+
+    .search-input
+    {
+        padding-left: 16%;
+        height: 2.5rem;
+    }
+}
+
+
+/*Main Style */
+.main-carousel
+{
+    position: relative;
+    grid-area: Carousel;
+    width: 100vw;
+
+    .carousel
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
+    .carousel-inner
+    {
+        height: 100%;
+    }
+}
+
+.cards
+{
+    display: flex;
+    padding: 1.5rem 1.5rem;
+    gap: 1.25rem 1.25rem;
+    width: 100vw;
+
+    .card
+    {
+        width: 18rem;
+
+        .card-header, .card-footer
+        {
+            text-align: center;
+        }
+
+        .card-shopping
+        {
+            padding: 1.25rem 1.25rem;
+            display: inline-flex;
+            justify-content: space-around;
+            align-items: center;
+            color: $pink;
+            font-weight: 700;
+        }
+    }
+}
+
+
+/* Categories */
+
+.categories-cards
+{
+    @extend .cards;
+}    
+
+
+
+/* Screen Mobile */
+
+@media screen and (max-width: 30rem) 
+{
+
+    /* Template Css */
+
+    .header-container
+    {
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: 
+        "Logo"
+        "Nav"
+        "Form";
+    }
+
+    .main-container
+    {
+        grid-template-areas: 
+        "Carousel"
+        "Card";
+        justify-content: center;
+        justify-items: center;
+    }
+    
+    
+    /* Main */
+
+    .main-carousel
+    {
+        height: 12rem  ;
+    }
+
+    .cards
+    {
+        flex-flow: column wrap;
+        align-content: center;
+    }
+
+  
+}   
+
+
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1000px)
+{
+    /* Template Css */
+
+    .header-container
+    {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 5rem;
+        grid-template-areas: 
+        "Logo Nav"
+        "Form Form";
+    }
+    
+    .main-container
+    {
+        grid-template-areas: 
+        "Carousel"
+        "Card";
+        justify-content: center;
+        justify-items: center;
+    }
+
+    /* Main */
+
+    .main-carousel
+    {
+        height: 25rem  ;
+    }
+
+    .cards
+    {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    
+}   
+
+
+
+/* Laptop e PC */
+
+@media screen and (min-width: 1024px)
+{
+    
+    /* Template Css */
+
+    .header-container
+    {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+        "Logo Nav Form";
+    }
+
+    .main-container
+    {
+        grid-template-areas: 
+        "Carousel"
+        "Card";
+    }
+
+    /* Main */
+    .main-carousel
+    {
+        height: 40rem;
+    }
+    
+    .cards
+    {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    
+      
+}
